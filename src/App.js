@@ -2,9 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HeaderAccueil from './components/HeaderAccueil';
 import HeaderRecherche from './components/HeaderRecherche';
+import HeaderVendre from './components/HeaderVendre';
 import Annonces from './components/Annonces';
 import Footer from './components/Footer';
 import Recherche from './components/Recherche';
+import Auth from './components/Auth';
+import Vendre from './components/Vendre';
+import APropos from './components/APropos';
 
 function App() {
   return (
@@ -25,6 +29,28 @@ function App() {
             <>
               <HeaderRecherche />
               <Recherche />
+              <Footer />
+            </>
+          } />
+
+          {/* Page vendre avec HeaderVendre */}
+          <Route path="/vendre" element={
+            <>
+              <HeaderVendre />
+              <Vendre />
+              <Footer />
+            </>
+          } />
+
+          {/* Page d'authentification */}
+          <Route path="/auth" element={<Auth />} />
+
+          
+        {/* Page À propos */}
+          <Route path="/apropos" element={
+            <>
+              <HeaderVendre />
+              <APropos />
               <Footer />
             </>
           } />

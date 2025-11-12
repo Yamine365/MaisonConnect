@@ -1,7 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function HeaderRecherche() {
+  const navigate = useNavigate();
+
+  const handlePublishClick = () => {
+    navigate('/auth');
+  };
+
   return (
     <header className="header" style={{ padding: '20px', backgroundColor: '#e6f4ea' }}>
       <div className="logo" style={{ display: 'inline-block', fontWeight: 'bold', fontSize: '20px', color: '#2d8a4f' }}>
@@ -10,13 +16,28 @@ function HeaderRecherche() {
       <nav style={{ display: 'inline-block', marginLeft: '50px' }}>
         <Link to="/" style={{ margin: '0 10px', textDecoration: 'none', color: 'inherit' }}>Accueil</Link>
         <Link to="/recherche" style={{ margin: '0 10px', textDecoration: 'none', color: 'inherit' }}>Rechercher</Link>
-        <a href="/" style={{ margin: '0 10px', textDecoration: 'none', color: 'inherit' }}>Vendre</a>
-        <a href="/" style={{ margin: '0 10px', textDecoration: 'none', color: 'inherit' }}>À propos</a>
+        <Link to="/Vendre" style={{ margin: '0 10px', textDecoration: 'none', color: 'inherit' }}>Vendre</Link>
+        <Link to="/APropos" style={{ margin: '0 10px', textDecoration: 'none', color: 'inherit' }}>À propos</Link>
       </nav>
-      <button style={{ float: 'right', backgroundColor: '#2d8a4f', color: 'white', padding: '10px 15px', border: 'none', borderRadius: '5px', marginLeft: '10px' }}>
+      
+      {/* Bouton modifié avec useNavigate */}
+      <button 
+        onClick={handlePublishClick}
+        style={{ 
+          float: 'right', 
+          backgroundColor: '#2d8a4f', 
+          color: 'white', 
+          padding: '10px 15px', 
+          border: 'none', 
+          borderRadius: '5px', 
+          marginLeft: '10px',
+          cursor: 'pointer'
+        }}
+      >
         <span role="img" aria-label="user" style={{ marginRight: '5px' }}>👤</span>
         Publier une annonce
       </button>
+      
       {/* Section barre de recherche sous le header */}
       <section style={{ padding: '40px 20px', backgroundColor: '#E6F4EA' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
@@ -171,7 +192,6 @@ function HeaderRecherche() {
         </div>
       </section>
     </header>
-    
   );
 }
 
